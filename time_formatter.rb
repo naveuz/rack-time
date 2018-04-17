@@ -1,5 +1,5 @@
 class TimeFormatter
-  attr_reader :code, :body
+  attr_reader :status, :body
 
   FORMATS = {
     'year' => '%Y-', 'month' => '%m-', 'day' => '%d',
@@ -35,12 +35,12 @@ class TimeFormatter
   end
 
   def current_time
-    @code = 200
+    @status = true
     Time.now.strftime(@formats)
   end
 
   def unknown_formats
-    @code = 400
+    @status = false
     "Unknown time format #{@unknowns}"
   end
 end
